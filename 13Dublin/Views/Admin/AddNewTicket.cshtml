@@ -1,0 +1,51 @@
+﻿@model Ticket
+
+    <div class="form-horizontal">
+        <h3>Добавление билетов</h3>
+        <p>Введите свои данные</p>
+        <form asp-action="AddNewTicket" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label asp-for="Company"></label>
+                <div class="col-md-5">
+                    <input asp-for="Company" class="form-control" />
+                    <span asp-validation-for="Company" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <div class="col-md-5">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <div class="col-md-5">
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Row"></label>
+                <div class="col-md-5">
+                    <input asp-for="Row" class="form-control" />
+                    <span asp-validation-for="Row" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Place"></label>
+                <div class="col-md-5">
+                    <input asp-for="Place" class="form-control" />
+                    <span asp-validation-for="Place" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date"></label>
+                <div class="col-md-5">
+                    <input type="datetime" asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+            </div>
+            <input class="btn btn-success" type="submit" value="Подтвердить" style="width:150px" />
+        </form>
+    </div>

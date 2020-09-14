@@ -1,0 +1,42 @@
+﻿@model MainPageModel
+
+<div id="" class="">
+    <div class="item" >
+        <img src="~/images/theatre/Studio 2.jpg"/>
+    </div>
+</div>
+
+<!--////////////////////////////////////Container-->
+
+
+                    <!--Start Box-->
+                    <div class="box-header">
+                        <div class="row">
+                            <blockquote style="text-align:center"><p>WHO DARES - WIN</p></blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+@foreach (var item in Model.Videos)
+{
+    <section class="content-box box-1">
+        <div class="zerogrid">
+            <div class="wrap-box">
+                <div class="entry-header">
+                    <h2 class="entry-title"><p>@item.Name</p></h2>
+                    <h2 class="time"><p>@item.Date</p></h2>
+                </div>
+                <div class="post-thumbnail-wrap">
+                    <iframe width="560" height="315" src=@item.Url frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+

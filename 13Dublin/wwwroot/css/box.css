@@ -1,0 +1,56 @@
+﻿
+.cont {
+    width: 100%;
+    max-width: 1024px; 
+    padding: 0 15px;
+    margin: 0 auto;
+    background-color:aqua;
+    text-align:center;
+}
+
+.ticketbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align:center;
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+    border: 1px solid grey;
+    background: white;
+    transition: 2s;
+}
+
+.ticketbox:hover{
+    background: blue;
+}
+
+    .ticketbox a {
+        display: block;
+        text-align: center;
+        height: 100%;
+        position: relative;
+    }
+
+    .ticketbox a span{
+        display:none;
+    }
+
+    .ticketbox a:hover span{
+         background-color: white;
+         display:block;
+         position:absolute;
+         bottom:50px;
+         left: 1px;
+         text-align:center;
+         font-size:10px;
+         
+    }
+    .right{
+        text-align: center;
+    }
+
+    .disabledd{
+        pointer-events: none;
+        cursor:default;
+        color: #888;
+    }

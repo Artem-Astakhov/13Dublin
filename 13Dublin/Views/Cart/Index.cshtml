@@ -1,0 +1,45 @@
+﻿@model CartViewModel
+
+<h2>Корзина</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Количество</th>
+            <th>Ряд</th>
+            <th>Место</th>
+            <th>Название</th>
+            <th class="text-right">Цена</th>
+            <th class="text-right">Всего</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var line in Model.Cart.Lines)
+        {
+        <tr>
+            <td class="text-center">@line.Quantity</td>
+            <td class="text-center">@line.Ticket.Row</td>
+            <td class="text-center">@line.Ticket.Place</td>
+            <td class="text-left">@line.Ticket.Name</td>
+            <td class="text-right">@line.Ticket.Price.ToString("c")</td>
+            <td class="text-right">
+                @((line.Quantity * line.Ticket.Price).ToString("c"))
+            </td>
+            <td>
+                <a class="btn btn-danger" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-id="@line.Ticket.Id">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Сумма</td>
+            <td class="text-right">
+                @Model.Cart.TotalValue().ToString("c")
+            </td>
+        </tr>
+    </tfoot>
+</table> 
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">Продолжить покупку</a>
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Забронировать</a>
+</div>

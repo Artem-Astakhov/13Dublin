@@ -1,0 +1,36 @@
+﻿@model TicketViewModel
+@{
+    Layout = "_Admin";
+}
+
+
+<a class="btn btn-danger mb-5" asp-controller="Admin" asp-action="DeleteTicket">Обнулить</a>
+<div class="panel-body">
+    <h2>Билеты</h2>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Ид</th>
+                <th>Имя</th>
+                <th>Ряд</th>
+                <th>Место</th>
+                <th>Наличие</th>
+                <th>Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Tickets)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Row</td>
+                    <td>@item.Place</td>
+                    <td>@item.Available</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-danger mb-5" asp-controller="Admin" asp-action="AddNewTicket">Создать билеты</a>
+</div>

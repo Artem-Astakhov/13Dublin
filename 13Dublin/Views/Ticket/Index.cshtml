@@ -1,0 +1,62 @@
+﻿@model TicketViewModel
+
+<section>
+    <div class="image right"><img src="~/images/theatre/scene.jpg" /></div>
+</section>    
+<section class="cont">
+
+    @for (int i = 0; i < Model.RowCount; i++)
+    {
+        @foreach (var item in Model.Tickets.Where(t => t.Row == i + 1))
+        {
+            @if (item.Available == true)
+            {
+                @if (item.Place == 11)
+                {<span>&emsp;</span>}
+                <div id="tick" class="ticketbox">
+                    <a class="btn" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id">
+                        @item.Place
+                        <span>Ряд: @item.Row, Место: @item.Place</span>
+                    </a>
+                </div>
+            }
+            else
+            {
+                @if (item.Place == 11)
+                {<span>&emsp;</span>}
+                <div id="tick" class="ticketbox">
+                    <a class="btn disabled" style="background-color:gray" asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id">
+                        @item.Place
+                        <span>Ряд: @item.Row, Место: @item.Place</span>
+                    </a>
+
+                </div>
+            }
+
+        }
+        <br />
+    }
+
+</section>
+<div class="right">
+    <a class="btn btn-dark" asp-controller="Cart" asp-action="Index">Оформить заказ</a>
+</div>   
+
+@*@section scripts{ 
+    <script type="text/javascript">
+        function getId(ticketId) {
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: "Post",
+                data: { id: ticketId },
+                dataType: "json",
+                success: function (result) { success(result); },
+                failure: function (response) {
+                    alert(response);
+                }
+            });
+        }
+    </script>*@
+} 
+
+    
